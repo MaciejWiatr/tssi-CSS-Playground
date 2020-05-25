@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link your favicon -->
+
+    <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon" />
+
+    <!-- Setup your title -->
+
+    <title>Właściwości CSS</title>
+</head>
+
+<body>
+    <section class="hero__section">
+        <header class="hero__header">
+            <h1 class="hero__title">CSS Playground ⚡</h1>
+            <p class="hero__subtitle">W ramach zadania z cssowymi właściwościami postanowiłem stworzyć małą piaskownicę
+            </p>
+        </header>
+    </section>
+    <div class="playground__cards__container">
+        <div class="playground__cards__wrapper">
+            <div class="playground__card">
+                <div class="playground__card__preview_text">Przykładowy tekst</div>
+                <div class="playground__card__editor_text">
+                    <form id="textForm">
+                        <p>Text Style</p>
+                        <select name="style" id="style">
+                            <option value="normal">normal</option>
+                            <option value="bold">bold</option>
+                            <option value="italic">italic</option>
+                        </select>
+                        <p>Text Color</p>
+                        <input class="jscolor" value="000000">
+                    </form>
+                </div>
+            </div>
+            <div class="playground__card">
+                <div class="playground__card__preview_margin">
+                    <div class="box">Pudełko 📦</div>
+                </div>
+                <div class="playground__card__editor_margin">
+                    <form id="marginForm">
+                        <p>Margin horizontal</p>
+                        <input name="horizInput" type="range" min="-100" max="100" value="0">
+                        <p>Margin vertical</p>
+                        <input name="vertiInput" type="range" min="-100" max="100" value="0">
+                    </form>
+                </div>
+            </div>
+            <div class="playground__card">
+                <div class="playground__card__preview_image">
+
+                </div>
+                <div class="playground__card__editor_image">
+                    <form id="bg__form">
+                        <p>BG Position</p>
+                        <select name="position">
+                            <option value="left top">left top</option>
+                            <option value="left center">left center</option>
+                            <option value="left bottom">left bottom</option>
+                            <option value="right top">right top</option>
+                            <option value="right center">right center</option>
+                            <option value="right bottom">right bottom</option>
+                            <option value="center top">center top</option>
+                            <option selected="selected" value="center center">center center</option>
+                            <option value="center bottom">center bottom</option>
+                        </select>
+                        <div class="size__inputs">
+                            <p>Width</p>
+                            <input name="width" type="text" placeholder="auto">
+                            <p>Height</p>
+                            <input name="height" type="text" placeholder="auto">
+                        </div>
+                        <p>BG Repeat</p>
+                        <select name="repeat" id="repeat">
+                            <option value="repeat">repeat</option>
+                            <option value="repeat-x">repeat-x</option>
+                            <option value="repeat-y">repeat-y</option>
+                            <option value="no-repeat">no-repeat</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
