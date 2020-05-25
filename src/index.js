@@ -1,6 +1,8 @@
-import "./main.scss";
-import "./vendor/jscolor";
-import "./vendor/aos";
+import "./main.scss"; // main styles
+import "./vendor/jscolor"; // color picker
+import "./vendor/aos"; // animations on scroll
+
+// Import all images
 
 (function importAll(r) {
   return r.keys().map(r);
@@ -14,12 +16,19 @@ document.querySelectorAll("form").forEach((form) => {
   });
 });
 
-// Text form handling
+//////////////////////
+//Text form handling//
+//////////////////////
+
+// Selectors
+
 const textPrev = document.querySelector(".playground__card__preview_text");
 const textForm = document.querySelector("#textForm");
 const textStyleSelector = textForm.elements.style;
 const textColorInput = document.querySelector(".jscolor");
 const textDecorSelector = textForm.elements.decoration;
+
+// Listen for changes and update properties
 
 textDecorSelector.addEventListener("change", (e) => {
   const decor = e.target.value;
@@ -28,10 +37,11 @@ textDecorSelector.addEventListener("change", (e) => {
 
 textStyleSelector.addEventListener("change", (e) => {
   const style = e.target.value;
+  textPrev.style.fontWeight = "Initial"; // Clear font weight
+  textPrev.style.fontStyle = "Initial"; // Clear font style
   if (style === "bold") {
     textPrev.style.fontWeight = style;
   } else {
-    textPrev.style.fontWeight = "Initial";
     textPrev.style.fontStyle = style;
   }
 });
@@ -40,12 +50,18 @@ textColorInput.addEventListener("change", (e) => {
   textPrev.style.color = `#${e.target.value}`;
 });
 
-//Margin form handling
+////////////////////////
+//Margin form handling//
+////////////////////////
+
+// Selectors
 
 const boxEl = document.querySelector(".box");
 const marginForm = document.querySelector("#marginForm");
 const horizSlider = marginForm.elements.horizInput;
 const vertiSlider = marginForm.elements.vertiInput;
+
+// Listen for input and adjust box margin
 
 horizSlider.addEventListener("input", (e) => {
   boxEl.style.marginLeft = `${e.target.value}px`;
@@ -54,7 +70,11 @@ vertiSlider.addEventListener("input", (e) => {
   boxEl.style.marginBottom = `${e.target.value}px`;
 });
 
-//Background form handling
+///////////////////////
+//Background handling//
+///////////////////////
+
+// Selectors
 
 const bgEl = document.querySelector(".playground__card__preview_image");
 const bgForm = document.querySelector("#bg__form");
@@ -63,6 +83,8 @@ const widthInput = bgForm.elements.width;
 const heightInput = bgForm.elements.height;
 const repeatInput = bgForm.elements.repeat;
 const attachInput = bgForm.elements.attachment;
+
+// Validate inputs
 
 const sizeValid = () => {
   const width = widthInput.value;
@@ -76,6 +98,8 @@ const sizeValid = () => {
   }
 };
 
+// Chceck if size given is valid and resize image
+
 const setBgSize = () => {
   if (sizeValid()) {
     const size = `${widthInput.value}px ${heightInput.value}px`;
@@ -85,9 +109,7 @@ const setBgSize = () => {
   }
 };
 
-positionInput.addEventListener("change", (e) => {
-  bgEl.style.backgroundPosition = e.target.value;
-});
+// Set bg size on input change
 
 widthInput.addEventListener("input", (e) => {
   setBgSize();
@@ -96,15 +118,29 @@ heightInput.addEventListener("input", (e) => {
   setBgSize();
 });
 
+// Change bg position on option change
+
+positionInput.addEventListener("change", (e) => {
+  bgEl.style.backgroundPosition = e.target.value;
+});
+
+// Change bg repeat on option change
+
 repeatInput.addEventListener("change", (e) => {
   bgEl.style.backgroundRepeat = e.target.value;
 });
+
+// Change bg attachment on option change
 
 attachInput.addEventListener("change", (e) => {
   bgEl.style.backgroundAttachment = e.target.value;
 });
 
-// Handle shadow
+//////////////////
+// Handle shadow//
+//////////////////
+
+// Selectors
 
 const shadowBox = document.querySelector(".shadowBox");
 const shadowForm = document.querySelector("#shadowForm");
@@ -114,6 +150,8 @@ const blurRadiusSlider = shadowForm.elements.blurRad;
 const spreadRadiusSlider = shadowForm.elements.spreadRad;
 const opacitySlider = shadowForm.elements.opacity;
 
+// Create array from all range inpurs
+
 const shadowSliders = new Array(
   horizLenSlider,
   vertiLenSlider,
@@ -122,6 +160,8 @@ const shadowSliders = new Array(
   opacitySlider
 );
 
+// Create shadow string and attaach it to shadowBox
+
 const renderShadow = () => {
   const opacity = opacitySlider.value / 100;
   const shadow = `${horizLenSlider.value}px ${vertiLenSlider.value}px ${blurRadiusSlider.value}px ${spreadRadiusSlider.value}px rgba(0,0,0,${opacity})`;
@@ -129,17 +169,21 @@ const renderShadow = () => {
   shadowBox.style.boxShadow = shadow;
 };
 
+// Listen for form inputs and re-render shadow
+
 shadowSliders.forEach((slider) => {
   slider.addEventListener("input", (e) => {
     renderShadow();
   });
 });
 
-// Scroll thingie
+// Scroll button
 
 document.querySelector(".scrollup__button").addEventListener("click", (e) => {
   window.scroll(0, 0);
 });
+
+// Scroll card margin handler
 
 window.addEventListener("scroll", (e) => {
   const firstCard = document.querySelector(".playground__card");

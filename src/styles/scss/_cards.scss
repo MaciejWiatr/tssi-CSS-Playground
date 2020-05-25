@@ -13,4 +13,7 @@
 
 %card-edit {
   @extend %card-half;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
