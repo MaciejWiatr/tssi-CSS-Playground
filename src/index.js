@@ -1,5 +1,6 @@
 import "./main.scss";
 import "./vendor/jscolor";
+import AOS from "./vendor/aos";
 (function importAll(r) {
   return r.keys().map(r);
 })(require.context("./images", false, /\.(png|jpe?g|svg|ico)$/));
@@ -89,4 +90,20 @@ heightInput.addEventListener("input", (e) => {
 
 repeatInput.addEventListener("change", (e) => {
   bgEl.style.backgroundRepeat = e.target.value;
+});
+
+// Scroll thingie
+
+document.querySelector(".scrollup__button").addEventListener("click", (e) => {
+  window.scroll(0, 0);
+});
+
+window.addEventListener("scroll", (e) => {
+  const firstCard = document.querySelector(".playground__card");
+  if (window.pageYOffset > 100) {
+    firstCard.style.transition = "margin-top .5s ease";
+    firstCard.style.marginTop = "-20vh";
+  } else {
+    firstCard.style.marginTop = "-10vh";
+  }
 });

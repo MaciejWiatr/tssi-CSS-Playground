@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Link your favicon -->
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon" />
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Setup your title -->
 
     <title>Właściwości CSS</title>
 </head>
 
 <body>
+    <div class="scrollup__button">
+        <span class="material-icons">
+            keyboard_arrow_up
+        </span>
+    </div>
     <section class="hero__section">
         <header class="hero__header">
             <h1 class="hero__title">CSS Playground ⚡</h1>
@@ -24,7 +29,7 @@
     </section>
     <div class="playground__cards__container">
         <div class="playground__cards__wrapper">
-            <div class="playground__card">
+            <div class="playground__card" data-aos="fade-right">
                 <div class="playground__card__preview_text">Przykładowy tekst</div>
                 <div class="playground__card__editor_text">
                     <form id="textForm">
@@ -39,7 +44,7 @@
                     </form>
                 </div>
             </div>
-            <div class="playground__card">
+            <div class="playground__card " data-aos="fade-up">
                 <div class="playground__card__preview_margin">
                     <div class="box">Pudełko 📦</div>
                 </div>
@@ -52,7 +57,7 @@
                     </form>
                 </div>
             </div>
-            <div class="playground__card">
+            <div class="playground__card" data-aos="fade-up">
                 <div class="playground__card__preview_image">
 
                 </div>
