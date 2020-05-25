@@ -1,0 +1,16 @@
+%card-half {
+  width: 50%;
+}
+
+%card-prev {
+  @extend %card-half;
+  background-color: white;
+  border-right: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%card-edit {
+  @extend %card-half;
+}

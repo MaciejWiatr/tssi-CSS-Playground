@@ -1,6 +1,7 @@
 import "./main.scss";
 import "./vendor/jscolor";
-import AOS from "./vendor/aos";
+import "./vendor/aos";
+
 (function importAll(r) {
   return r.keys().map(r);
 })(require.context("./images", false, /\.(png|jpe?g|svg|ico)$/));
@@ -18,6 +19,12 @@ const textPrev = document.querySelector(".playground__card__preview_text");
 const textForm = document.querySelector("#textForm");
 const textStyleSelector = textForm.elements.style;
 const textColorInput = document.querySelector(".jscolor");
+const textDecorSelector = textForm.elements.decoration;
+
+textDecorSelector.addEventListener("change", (e) => {
+  const decor = e.target.value;
+  textPrev.style.textDecoration = decor;
+});
 
 textStyleSelector.addEventListener("change", (e) => {
   const style = e.target.value;
@@ -55,6 +62,7 @@ const positionInput = bgForm.elements.position;
 const widthInput = bgForm.elements.width;
 const heightInput = bgForm.elements.height;
 const repeatInput = bgForm.elements.repeat;
+const attachInput = bgForm.elements.attachment;
 
 const sizeValid = () => {
   const width = widthInput.value;
@@ -90,6 +98,41 @@ heightInput.addEventListener("input", (e) => {
 
 repeatInput.addEventListener("change", (e) => {
   bgEl.style.backgroundRepeat = e.target.value;
+});
+
+attachInput.addEventListener("change", (e) => {
+  bgEl.style.backgroundAttachment = e.target.value;
+});
+
+// Handle shadow
+
+const shadowBox = document.querySelector(".shadowBox");
+const shadowForm = document.querySelector("#shadowForm");
+const horizLenSlider = shadowForm.elements.horizLen;
+const vertiLenSlider = shadowForm.elements.vertiLen;
+const blurRadiusSlider = shadowForm.elements.blurRad;
+const spreadRadiusSlider = shadowForm.elements.spreadRad;
+const opacitySlider = shadowForm.elements.opacity;
+
+const shadowSliders = new Array(
+  horizLenSlider,
+  vertiLenSlider,
+  blurRadiusSlider,
+  spreadRadiusSlider,
+  opacitySlider
+);
+
+const renderShadow = () => {
+  const opacity = opacitySlider.value / 100;
+  const shadow = `${horizLenSlider.value}px ${vertiLenSlider.value}px ${blurRadiusSlider.value}px ${spreadRadiusSlider.value}px rgba(0,0,0,${opacity})`;
+  shadowBox.textContent = shadow;
+  shadowBox.style.boxShadow = shadow;
+};
+
+shadowSliders.forEach((slider) => {
+  slider.addEventListener("input", (e) => {
+    renderShadow();
+  });
 });
 
 // Scroll thingie

@@ -23,30 +23,40 @@
     <section class="hero__section">
         <header class="hero__header">
             <h1 class="hero__title">CSS Playground ⚡</h1>
-            <p class="hero__subtitle">W ramach zadania z cssowymi właściwościami postanowiłem stworzyć małą piaskownicę
-            </p>
+            <!-- <p class="hero__subtitle">W ramach zadania z cssowymi właściwościami postanowiłem stworzyć małą
+                piaskownicę<br>
+                w której w interaktywny sposób można poznać każde z tych właściwości
+            </p> -->
         </header>
     </section>
     <div class="playground__cards__container">
         <div class="playground__cards__wrapper">
             <div class="playground__card" data-aos="fade-right">
-                <div class="playground__card__preview_text">Przykładowy tekst</div>
+                <div class="playground__card__preview_text">Example text</div>
                 <div class="playground__card__editor_text">
                     <form id="textForm">
                         <p>Text Style</p>
-                        <select name="style" id="style">
+                        <select name="style">
                             <option value="normal">normal</option>
                             <option value="bold">bold</option>
                             <option value="italic">italic</option>
+                        </select>
+                        <p>Text Decoration</p>
+                        <select name="decoration">
+                            <option value="none">none</option>
+                            <option value="underline">underline</option>
+                            <option value="overline">overline</option>
+                            <option value="line-through">line-through</option>
                         </select>
                         <p>Text Color</p>
                         <input class="jscolor" value="000000">
                     </form>
                 </div>
             </div>
+
             <div class="playground__card " data-aos="fade-up">
                 <div class="playground__card__preview_margin">
-                    <div class="box">Pudełko 📦</div>
+                    <div class="box">Box 📦</div>
                 </div>
                 <div class="playground__card__editor_margin">
                     <form id="marginForm">
@@ -82,18 +92,48 @@
                             <input name="height" type="text" placeholder="auto">
                         </div>
                         <p>BG Repeat</p>
-                        <select name="repeat" id="repeat">
+                        <select name="repeat">
                             <option value="repeat">repeat</option>
                             <option value="repeat-x">repeat-x</option>
                             <option value="repeat-y">repeat-y</option>
                             <option value="no-repeat">no-repeat</option>
                         </select>
+                        <p>BG attachment</p>
+                        <select name="attachment">
+                            <option value="scroll">scroll</option>
+                            <option value="fixed">fixed</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="playground__card" data-aos="fade-up">
+                <div class="playground__card__preview_shadow">
+
+                    <div class="shadowBox">0px 20px 20px 10px rgba(0, 0, 0, 0.3)</div>
+                </div>
+                <div class="playground__card__editor_shadow">
+                    <form id="shadowForm">
+                        <p>Horizontal Length</p>
+                        <input name="horizLen" type="range" min="-100" max="100" value="0">
+                        <p>Vertical Length</p>
+                        <input name="vertiLen" type="range" min="-100" max="100" value="20">
+                        <p>Blur Radius</p>
+                        <input name="blurRad" type="range" min="0" max="100" value="20">
+                        <p>Spread Radius</p>
+                        <input name="spreadRad" type="range" min="-100" max="100" value="10">
+                        <p>Opacity</p>
+                        <input name="opacity" type="range" min="0" max="100" value="30">
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <footer>
+        Created by Maciej Wiatr
+        <div class="footer__button">
+            <a target="_blank" class="footer__link" href="https://github.com/MaciejWiatr/tssi-CSS-Playground">Repo
+        </div>
+    </footer>
 </body>
 
 </html>
